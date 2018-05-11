@@ -13,8 +13,8 @@
   "minimum-stability": "stable",
   "require": {},
   "autoload": {
-    "psr4": {
-      "\\Ideas2life\\I2Log\\": "src/"
+    "psr-4": {
+      "Ideas2life\\I2Log\\": "src/"
     }
   }
 }

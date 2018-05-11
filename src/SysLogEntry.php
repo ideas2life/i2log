@@ -10,11 +10,11 @@ namespace Ideas2life\I2Log;
 
 
 
-class SysLogEntry
+class SysLogEntry implements LogEntryInterface
 {
 
     /**
-     * @var
+     * @var string
      */
     public $message;
 
@@ -24,7 +24,7 @@ class SysLogEntry
     public $timestamp;
 
     /**
-     * @var array
+     * @var mixed
      */
     public $data;
 
@@ -32,7 +32,7 @@ class SysLogEntry
     /**
      * SysLogEntry constructor.
      * @param $message
-     * @param array $data
+     * @param mixed $data
      * @param \DateTime|null $time
      */
     public function __construct($message, $data = [], \DateTime $time = null)
@@ -47,7 +47,30 @@ class SysLogEntry
      */
     public function __toString()
     {
-        return $this->timestamp->format('Y-m-d H:i:s');
+        return $this->timestamp->format('Y-m-d H:i:s').'-'.$this->message;
     }
 
+    /**
+     * @return mixed
+     */
+    public function data()
+    {
+        return $this->data;
+    }
+
+    /**
+     * @return string
+     */
+    public function message()
+    {
+        return $this->message;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function timestamp()
+    {
+      return $this->timestamp;
+    }
 }
