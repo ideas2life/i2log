@@ -14,13 +14,20 @@ interface SystemLogInterface
 
     /**
      * @param $message
-     * @param array $data
+     * @param mixed $data
      * @return void
      */
     public function log($message, $data = []);
 
     /**
-     * @return SysLogEntry[]
+     * @return LogEntryInterface[]
      */
     public function getLog();
+
+
+    /**
+     * @param LogEntryInterface $logEntry
+     * @return void
+     */
+    public function addEntry(LogEntryInterface $logEntry);
 }
